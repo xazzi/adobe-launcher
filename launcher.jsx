@@ -22,5 +22,5 @@ if(new RegExp("Macintosh","g").exec($.os) == "Macintosh"){
 }
 
 if(platform !== undefined){
-    $.evalFile(platform.local + "/main.jsx");
+    $.evalFile(platform.local + "/window/main.jsx");
 }
