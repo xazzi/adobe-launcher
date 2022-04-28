@@ -21,17 +21,23 @@ var w = new Window ('palette');
 
     w.tabs[0].vlOpen = w.tabs[0].add("button", [0,0,100,30], "Open");
     w.tabs[0].vlOpen.onClick = function(){
-        funcToBT($.evalFile(platform.local + "/processes/vinyl-lettering/vl-open.jsx"));
+        funcToBT(function temp(){
+            $.evalFile(platform.local + "/processes/vinyl-lettering/vl-open.jsx");
+        });
     }
 
     w.tabs[0].vlPrep = w.tabs[0].add("button", [0,0,100,30], "Prep");
     w.tabs[0].vlPrep.onClick = function(){
-        funcToBT($.evalFile(platform.local + "/processes/vinyl-lettering/vl-prep.jsx"));
+        funcToBT(function temp(){
+            $.evalFile(platform.local + "/processes/vinyl-lettering/vl-prep.jsx");
+        });
     }
 
     w.tabs[0].vlSave = w.tabs[0].add("button", [0,0,100,30], "Save");
     w.tabs[0].vlSave.onClick = function(){
-        funcToBT($.evalFile(platform.local + "/processes/vinyl-lettering/vl-save.jsx"));
+        funcToBT(function temp(){
+            $.evalFile(platform.local + "/processes/vinyl-lettering/vl-save.jsx");
+        });
     }
 
     // Make the 2nd panel -----------------------
@@ -39,13 +45,17 @@ var w = new Window ('palette');
 
     w.tabs[1].buttCut = w.tabs[1].add("button", [0,0,100,30], "ButtCut");
     w.tabs[1].buttCut.onClick = function(){
-        funcToBT($.evalFile(platform.local + "/processes/butt-cut/buttcut.jsx"));
+        funcToBT(function temp(){
+            $.evalFile(platform.local + "/processes/butt-cut/buttcut.jsx");
+        });
     }
 
     w.tabs[1].ccFile = w.tabs[1].add("button", [0,0,100,30], "Clean Cut File");
     w.tabs[1].ccFile.enabled = true;
     w.tabs[1].ccFile.onClick = function(){
-        funcToBT($.evalFile(platform.local + "/processes/clean-cut-file/cleancutfile.jsx"));
+        funcToBT(function temp(){
+            $.evalFile(platform.local + "/processes/clean-cut-file/cleancutfile.jsx");
+        });
     }
 
     for(var i=0; i<w.tabs.length; i++){

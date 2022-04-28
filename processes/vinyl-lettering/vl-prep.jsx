@@ -11,7 +11,7 @@ try{
     }
 
     // Load in the data from the xml that Switch created.
-    var dataFileXML = File(dir.xml + "/" + doc.name.split('.')[0].split('_')[3] + ".xml");
+    var dataFileXML = File(dir.xml + "/" + doc.name.split('.')[0].split('_')[4] + ".xml");
     var dataFile = loadXmlFile(dataFileXML);
 
     var data = {

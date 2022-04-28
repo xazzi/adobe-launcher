@@ -2,7 +2,7 @@ try{
 
     var dir = {
         ready: new Folder(platform.directory + "/Prepress/External/Special Process/Cut Vinyl/Ready/"),
-        complete: new Folder(platform.directory + "/Prepress/External/Special Process/Cut Vinyl/Complete/")
+        complete: new Folder(platform.directory + "/Prepress/Development/Special Process/Cut Vinyl/Complete/")
     }
 
     var $doc = app.activeDocument
@@ -18,6 +18,8 @@ try{
 
     var allLayers = $doc.layers;
     var lastIndex = allLayers.length-1;
+
+    var baseName = $doc.name.split('.')[0]
     
     for(var lr = allLayers.length-1; lr >= 0; lr--){
         if(allLayers[lr].name == "Thru-cut" || allLayers[lr].name == "Extras" || allLayers[lr].name == "Layer 1" || allLayers[lr].name == "Undefined Color"){
@@ -32,23 +34,21 @@ try{
             }       
         }
         
-        var sv_file = $doc.name.split('.')[0] + "_" + allLayers[0].name;
-        
         if(app.documents.length > 0){
             var pdfOptions = new PDFSaveOptions();
                 pdfOptions.pDFPreset = "Signs - Cut Files";
 
-            var outfolder = makeOrGetFolder(dir.complete + "/" + allLayers[0].name)
+            var outfolder = makeOrGetFolder(dir.complete + "/" + allLayers[0].name);
             
-            var outfile = new File(outfolder + "/" + sv_file + ".pdf");
+            var outfile = new File(outfolder + "/" + baseName + "_" + allLayers[0].name + ".pdf");
                 $doc.saveAs(outfile, pdfOptions);
         }
         lastIndex--;
         app.undo();
     }
 
-    $doc.close(SaveOptions.DONOTSAVECHANGES)
-    file.remove()
+    //$doc.close(SaveOptions.DONOTSAVECHANGES)
+    //file.remove()
 
 }catch(e){
     alert("Error!\n" + e);
