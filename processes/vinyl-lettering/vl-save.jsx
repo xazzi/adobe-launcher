@@ -2,7 +2,7 @@ try{
 
     var dir = {
         ready: new Folder(platform.directory + "/Prepress/External/Special Process/Cut Vinyl/Ready/"),
-        complete: new Folder(platform.directory + "/Prepress/Development/Special Process/Cut Vinyl/Complete/")
+        complete: new Folder(platform.directory + "/Prepress/External/Special Process/Cut Vinyl/Complete/")
     }
 
     var $doc = app.activeDocument
@@ -47,8 +47,8 @@ try{
         app.undo();
     }
 
-    //$doc.close(SaveOptions.DONOTSAVECHANGES)
-    //file.remove()
+    $doc.close(SaveOptions.DONOTSAVECHANGES)
+    file.remove()
 
 }catch(e){
     alert("Error!\n" + e);
