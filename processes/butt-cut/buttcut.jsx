@@ -24,7 +24,7 @@ var w = new Window("dialog", "Butt Cut");
     w.acceptButton = w.buttonGroup.add ("button", undefined, "Ok");
     w.acceptButton.onClick = function(){
         w.close();
-        processFiles(w);
+        processFiles();
     }
 
     w.cancelButton = w.buttonGroup.add ("button", undefined, "Cancel");
