@@ -40,6 +40,15 @@ var w = new Window ('palette');
         });
     }
 
+    /*
+    w.tabs[0].vlSave = w.tabs[0].add("button", [0,0,100,30], "Copy Item");
+    w.tabs[0].vlSave.onClick = function(){
+        funcToBT(function temp(){
+            $.evalFile(platform.local + "/processes/vinyl-lettering/vl-copy-item.jsx");
+        });
+    }
+    */
+
     // Make the 2nd panel -----------------------
     w.tabs[1] = w.tabGroup.add('panel');
 

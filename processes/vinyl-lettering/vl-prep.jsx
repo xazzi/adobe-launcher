@@ -107,11 +107,15 @@ try{
             continue;
         }
         colors++
-        var layerItems = allLayers[i].pathItems && allLayers[i].pageItems;
-        for(var k=layerItems.length-1;  k>=0; k--){ 
-            layerItems[k].selected = true;
+
+        var newGroup = allLayers[i].groupItems.add();  
+        for(var a=allLayers[i].pageItems.length-1; a>0; a--){ 
+            app.activeDocument.layers[i].pageItems[a].moveToBeginning(newGroup);
         }
-            app.doScript('Unite Paths', 'BatchScripts');
+
+        allLayers[i].groupItems[0].selected = true;
+            app.executeMenuCommand('Live Pathfinder Add');
+            app.executeMenuCommand('expandStyle')
             app.executeMenuCommand('deselectall');
     }
 
