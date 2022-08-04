@@ -1,7 +1,8 @@
 try{
 
     var dir = {
-        xml: new Folder(platform.directory + "/Prepress/Support/itemData/")
+       //xml: new Folder(platform.directory + "/Prepress/Support/itemData/")
+       xml: new Folder("//amz-impsw-data/IMPSW_DATA/Support/itemData")
     }
 
     var doc = app.activeDocument;
@@ -15,8 +16,12 @@ try{
     var dataFile = loadXmlFile(dataFileXML);
 
     var data = {
-        secondSurface: dataFile.product.secondSurface.text() == 'true' ? true : false
+        secondSurface: dataFile.product.secondSurface.text() == 'true' ? true : false,
+        cvColors: dataFile.product.cvColors.text()
     }
+
+    var usedColors = [];
+    var expectedColors = data.cvColors.split(',');
 
     var colors = 0;
     var offCut = doc.cropBox[3] - (.9-72);
@@ -72,16 +77,26 @@ try{
         var pathColor = {
             fill: allPaths[i].filled == true ? allPaths[i].fillColor.spot != undefined : null ? allPaths[i].fillColor.spot.name : null,
             stroke: allPaths[i].stroked == true ? allPaths[i].strokeColor.spot != undefined : null ? allPaths[i].strokeColor.spot.name : null,
-            cyan: Math.floor(allPaths[i].fillColor.cyan),
-            magenta : Math.floor(allPaths[i].fillColor.magenta),
-            yellow: Math.floor(allPaths[i].fillColor.yellow),
-            black: Math.floor(allPaths[i].fillColor.black)
+            cyan: allPaths[i].stroked ? Math.floor(allPaths[i].strokeColor.cyan) : Math.floor(allPaths[i].fillColor.cyan),
+            magenta : allPaths[i].stroked ? Math.floor(allPaths[i].strokeColor.magenta) : Math.floor(allPaths[i].fillColor.magenta),
+            yellow: allPaths[i].stroked ? Math.floor(allPaths[i].strokeColor.yellow) : Math.floor(allPaths[i].fillColor.yellow),
+            black: allPaths[i].stroked ? Math.floor(allPaths[i].strokeColor.black) : Math.floor(allPaths[i].fillColor.black)
         }
 
         var vinylData = readDatabase_cutVinyl(pathColor);
+
+        // Outline it if the color matches the database and is an outline.
+        if(vinylData.match){
+            if(allPaths[i].stroked == true){
+                allPaths[i].selected = true;
+                app.executeMenuCommand('OffsetPath v22');
+                allPaths[i].selected = false;
+            }
+        }
             
         if(allPaths[i].stroked == false && allPaths[i].filled == false){
             //allPaths[i].remove();
+            continue;
             
         }else if(app.activeDocument.pathItems[i].parent.typename == "CompoundPathItem"){
             var cvLayer = createLayer(vinylData.name, true);
@@ -91,6 +106,27 @@ try{
             var cvLayer = createLayer(vinylData.name, true);
                 allPaths[i].move(cvLayer, ElementPlacement.PLACEATEND);
         }
+
+        if(!contains(usedColors, vinylData.name)){
+            if(vinylData.name != "Undefined Color"){
+                usedColors.push(vinylData.name);
+            }
+        }
+    }
+    
+    for(var i in usedColors){
+        for(var j in expectedColors){
+            if(usedColors[i] == expectedColors[j]){
+                usedColors.splice(i,1);
+                expectedColors.splice(j,1);
+            }
+        }
+    }
+
+    if(expectedColors == "null"){
+        alert("No color data in IMS.")
+    }else if(usedColors.length != 0 || expectedColors.length != 0){
+        alert("Used colors not called out in IMS: " + usedColors + "\n\n" + "Expected colors not used in file: " + expectedColors)
     }
 
         deleteEmptyLayers();
@@ -100,6 +136,19 @@ try{
     }catch(e){}
 
     var allLayers = doc.layers
+
+    for(var i=0; i<allLayers.length; i++){
+        if(allLayers[i].name == "Undefined Color"){
+            var layerPaths = allLayers[i].pathItems;
+            for(var j=0; j<layerPaths.length; j++){
+                if(layerPaths[j].stroked){
+                    layerPaths[j].selected = true;
+                    app.executeMenuCommand('OffsetPath v22');
+                    layerPaths[j].selected = false;
+                }
+            }
+        }
+    }
 
     // Merge all elements on the layer.
     for(var i=0; i<allLayers.length; i++){

@@ -14,7 +14,9 @@ if(new RegExp("Macintosh","g").exec($.os) == "Macintosh"){
     var platform = {
         name: "Windows",
         username: $.getenv('USERNAME'),
-        directory: "//slc-stor-02/Departments/",
+        //directory: "//slc-stor-02/Departments/",
+        directory: "//10.15.30.51/Departments/",
+        //directory: "\\10.15.30.51\\Departments\\",
         local: paths.join("\\")
     }
 }else{

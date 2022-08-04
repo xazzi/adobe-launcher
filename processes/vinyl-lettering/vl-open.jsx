@@ -35,6 +35,11 @@ var w = new Window("dialog", "Vinyl Lettering");
         processFiles(w);
     }
 
+    w.deleteButton = w.buttonGroup.add ("button", undefined, "Delete");
+    w.deleteButton.onClick = function(){
+        deleteFiles(w);
+    }
+
     w.cancelButton = w.buttonGroup.add ("button", undefined, "Cancel");
 
 w.show()
@@ -43,6 +48,20 @@ function processFiles(query){
     try{
         for(var i=0; i<w.list.selection.length; i++){
             app.open(new File(dir.ready + "/" + query.dropdown.selection.text + "/" + w.list.selection[i].text));
+        }
+    }catch(e){
+        alert("Error!\n" + e);
+    }
+}
+
+function deleteFiles(query){
+    try{
+        for(var i=w.list.selection.length-1; i>-1; i--){
+            var cvFile = new File(dir.ready + "/" + query.dropdown.selection.text + "/" + w.list.selection[i].text);
+            if(cvFile.exists){
+                cvFile.remove();
+                w.list.remove(w.list.selection[i]);
+            }
         }
     }catch(e){
         alert("Error!\n" + e);
