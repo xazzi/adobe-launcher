@@ -1,8 +1,8 @@
 try{
 
     var dir = {
-       //xml: new Folder(platform.directory + "/Prepress/Support/itemData/")
-       xml: new Folder("//amz-impsw-data/IMPSW_DATA/Support/itemData")
+       xml: new Folder(platform.directory + "/Prepress/Support/itemData/")
+       //xml: new Folder("//amz-impsw-data/IMPSW_DATA/Support/itemData")
     }
 
     var doc = app.activeDocument;
