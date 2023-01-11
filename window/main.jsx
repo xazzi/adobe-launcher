@@ -17,28 +17,40 @@ var w = new Window ('palette');
     w.tabs = [];
 
     // Make the 1st panel -----------------------
-    w.tabs[0] = w.tabGroup.add ('panel');
+    w.tabs[0] = w.tabGroup.add('group');
+    w.tabs[0].orientation = "column";
 
-    w.tabs[0].vlOpen = w.tabs[0].add("button", [0,0,100,30], "Open");
-    w.tabs[0].vlOpen.onClick = function(){
+    w.scripts = w.tabs[0].add ('panel');
+
+    w.scripts.vlOpen = w.scripts.add("button", [0,0,100,30], "Open");
+    w.scripts.vlOpen.onClick = function(){
         funcToBT(function temp(){
             $.evalFile(platform.local + "/processes/vinyl-lettering/vl-open.jsx");
         });
     }
 
-    w.tabs[0].vlPrep = w.tabs[0].add("button", [0,0,100,30], "Prep");
-    w.tabs[0].vlPrep.onClick = function(){
+    w.scripts.vlPrep = w.scripts.add("button", [0,0,100,30], "Prep");
+    w.scripts.vlPrep.onClick = function(){
         funcToBT(function temp(){
             $.evalFile(platform.local + "/processes/vinyl-lettering/vl-prep.jsx");
         });
     }
 
-    w.tabs[0].vlSave = w.tabs[0].add("button", [0,0,100,30], "Save");
-    w.tabs[0].vlSave.onClick = function(){
+    w.scripts.vlSave = w.scripts.add("button", [0,0,100,30], "Save");
+    w.scripts.vlSave.onClick = function(){
         funcToBT(function temp(){
             $.evalFile(platform.local + "/processes/vinyl-lettering/vl-save.jsx");
         });
     }
+
+    w.options = w.tabs[0].add ('panel');
+    w.options.alignChildren = "left"
+
+    w.options.outline = w.options.add("checkbox", undefined, "Outline")
+	w.options.outline.value = false;
+
+    w.options.merge = w.options.add("checkbox", undefined, "Merge")
+	w.options.merge.value = true;
 
     // Make the 2nd panel -----------------------
     w.tabs[1] = w.tabGroup.add('panel');
