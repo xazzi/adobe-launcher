@@ -250,7 +250,7 @@ try{
             if(elements[m].layer.name == "White" || elements[m].layer.name == "Antique White"){
                 elements[m].strokeColor = doc.swatches.getByName("Kiss-cut").color;
             }else{
-                elements[m].strokeColor = doc.swatches.getByName(elements[m].layer.name + "_cv").color;
+                elements[m].strokeColor = doc.swatches.getByName(elements[m].layer.name.split(' (')[0] + "_cv").color;
             }
         }catch(e){}
     }

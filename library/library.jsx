@@ -62,6 +62,7 @@ function addSwatches(){
 
 function addCutVinylSwatches(){
     var csvFile = new File(platform.directory + "/Prepress/Private/Scripts/Resources/Data Files/database_cutVinyl-slc.csv");
+    var folder
     
     if(csvFile.exists){
         csvFile.open(File.ReadOnly);
@@ -70,8 +71,8 @@ function addCutVinylSwatches(){
                     line = line.replace(/\"/g,' ');
                 var detailsArray = line.split(',');
                 if(detailsArray[0] != "name"){
-                    //createRgbSwatch("CutVinyl", detailsArray[0] + "_cv", Number(detailsArray[3]), Number(detailsArray[4]), Number(detailsArray[5]))
-                    createCmykSwatch("CutVinyl", detailsArray[0] + "_cv", Number(detailsArray[6]), Number(detailsArray[7]), Number(detailsArray[8]), Number(detailsArray[9]))
+                    detailsArray[12] == 'y' ? folder = "CutVinyl" : folder = "Discontinued";
+                    createCmykSwatch(folder, detailsArray[0] + "_cv", Number(detailsArray[13]), Number(detailsArray[14]), Number(detailsArray[15]), Number(detailsArray[16]))
                 }
             }
         csvFile.close();
@@ -267,6 +268,10 @@ function readDatabase_cutVinyl(query){
         cvInfo.black = Number(detailsArray[9]);
         cvInfo.width = Number(detailsArray[10]);
         cvInfo.swatchName = detailsArray[11];
+        cvInfo.enabled = detailsArray[12] == 'y' ? true : false;
+        if(!cvInfo.enabled){
+            cvInfo.name = detailsArray[0] + " (Discontinued)"
+        }
     }
 
     return cvInfo;
