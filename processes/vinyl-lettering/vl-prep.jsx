@@ -17,11 +17,12 @@ try{
 
     var data = {
         secondSurface: dataFile.product.secondSurface.text() == 'true' ? true : false,
+        frosted: dataFile.product.cvFrosted.text() == 'true' ? true : false,
         cvColors: dataFile.product.cvColors.text()
     }
 
     var usedColors = [];
-    var expectedColors = data.cvColors.split(',');
+    var expectedColors = dataFile.product.cvColors.text() == "" ? "null" : data.cvColors.split(',');
 
     var colors = 0;
     var offCut = doc.cropBox[3] - (.9-72);
@@ -64,10 +65,12 @@ try{
         }
     }
 
+    // Remove the extras layer if it's present.
     try{
         doc.layers.getByName("Extras").remove();
     }catch(e){}
 
+    // Loop through the paths, assigning them based on the CMYK colors of the file.
     var allPaths = doc.pathItems;
     for(i=0; i<allPaths.length; i++){
         if(allPaths[i].layer.name == "Thru-cut" || allPaths[i].layer.name == "Extras"){
@@ -83,14 +86,22 @@ try{
             black: allPaths[i].stroked ? Math.floor(allPaths[i].strokeColor.black) : Math.floor(allPaths[i].fillColor.black)
         }
 
-        var vinylData = readDatabase_cutVinyl(pathColor);
+        var vinylData = {}
+        if(data.frosted){
+            vinylData.name = "Frosted"
+            vinylData.match = true;
+        }else{
+            vinylData = readDatabase_cutVinyl(pathColor);
+        }
 
         // Outline it if the color matches the database and is an outline.
         if(vinylData.match){
-            if(allPaths[i].stroked == true){
-                allPaths[i].selected = true;
-                app.executeMenuCommand('OffsetPath v22');
-                allPaths[i].selected = false;
+            if(w.options.outline.value){
+                if(allPaths[i].stroked == true){
+                    allPaths[i].selected = true;
+                    app.executeMenuCommand('OffsetPath v22');
+                    allPaths[i].selected = false;
+                }
             }
         }
             
@@ -114,19 +125,33 @@ try{
         }
     }
     
-    for(var i in usedColors){
-        for(var j in expectedColors){
-            if(usedColors[i] == expectedColors[j]){
-                usedColors.splice(i,1);
-                expectedColors.splice(j,1);
+    checkArrays(usedColors, expectedColors)
+
+    function checkArrays(){
+        for(var i in usedColors){
+            for(var j in expectedColors){
+                if(usedColors[i] == expectedColors[j]){
+                    usedColors.splice(i,1);
+                    expectedColors.splice(j,1);
+                    checkArrays(usedColors, expectedColors)
+                }
             }
         }
     }
 
     if(expectedColors == "null"){
-        alert("No color data in IMS.")
+        //alert("No color data in IMS.")
     }else if(usedColors.length != 0 || expectedColors.length != 0){
-        alert("Used colors not called out in IMS: " + usedColors + "\n\n" + "Expected colors not used in file: " + expectedColors)
+        var temp = ""
+        if(usedColors.length != 0){
+            temp += "Used colors not called out in IMS: " + usedColors + "\n\n"
+        }
+        if(expectedColors.length != 0){
+            temp += "Expected colors not used in file: " + expectedColors
+        }
+        alert(temp)
+    }else{
+        // Do nada.
     }
 
         deleteEmptyLayers();
@@ -151,21 +176,23 @@ try{
     }
 
     // Merge all elements on the layer.
-    for(var i=0; i<allLayers.length; i++){
-        if(allLayers[i].name == "Thru-cut" || allLayers[i].name == "Extras" || allLayers[i].name == "Layer 1" || allLayers[i].name == "Undefined Color"){
-            continue;
-        }
-        colors++
+    if(w.options.merge.value){
+        for(var i=0; i<allLayers.length; i++){
+            if(allLayers[i].name == "Thru-cut" || allLayers[i].name == "Extras" || allLayers[i].name == "Layer 1" || allLayers[i].name == "Undefined Color"){
+                continue;
+            }
+            colors++
 
-        var newGroup = allLayers[i].groupItems.add();  
-        for(var a=allLayers[i].pageItems.length-1; a>0; a--){ 
-            app.activeDocument.layers[i].pageItems[a].moveToBeginning(newGroup);
-        }
+            var newGroup = allLayers[i].groupItems.add();  
+            for(var a=allLayers[i].pageItems.length-1; a>0; a--){ 
+                app.activeDocument.layers[i].pageItems[a].moveToBeginning(newGroup);
+            }
 
-        allLayers[i].groupItems[0].selected = true;
-            app.executeMenuCommand('Live Pathfinder Add');
-            app.executeMenuCommand('expandStyle')
-            app.executeMenuCommand('deselectall');
+            allLayers[i].groupItems[0].selected = true;
+                app.executeMenuCommand('Live Pathfinder Add');
+                app.executeMenuCommand('expandStyle')
+                app.executeMenuCommand('deselectall');
+        }
     }
 
         fitArtboardToArt();
@@ -223,7 +250,7 @@ try{
             if(elements[m].layer.name == "White" || elements[m].layer.name == "Antique White"){
                 elements[m].strokeColor = doc.swatches.getByName("Kiss-cut").color;
             }else{
-                elements[m].strokeColor = doc.swatches.getByName(elements[m].layer.name + "_cv").color;
+                elements[m].strokeColor = doc.swatches.getByName(elements[m].layer.name.split(' (')[0] + "_cv").color;
             }
         }catch(e){}
     }

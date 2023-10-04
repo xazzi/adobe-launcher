@@ -20,35 +20,45 @@ try{
     var lastIndex = allLayers.length-1;
 
     var baseName = $doc.name.split('.')[0]
-    
-    for(var lr = allLayers.length-1; lr >= 0; lr--){
-        if(allLayers[lr].name == "Thru-cut" || allLayers[lr].name == "Extras" || allLayers[lr].name == "Layer 1" || allLayers[lr].name == "Undefined Color"){
-            lastIndex--;
-            continue;
-        }
-        for (var ii = allLayers.length-1; ii >= 0; ii-- ) {
-            if(ii!=lastIndex) {
-                if(allLayers[ii].locked == true) allLayers[ii].locked = false;
-                if(allLayers[ii].visible == false) allLayers[ii].visible = true;           
-                try{allLayers[ii].remove();}catch(ex){}
-            }       
-        }
-        
-        if(app.documents.length > 0){
-            var pdfOptions = new PDFSaveOptions();
-                pdfOptions.pDFPreset = "Signs - Cut Files";
 
-            var outfolder = makeOrGetFolder(dir.complete + "/" + allLayers[0].name);
-            
-            var outfile = new File(outfolder + "/" + baseName + "_" + allLayers[0].name + ".pdf");
-                $doc.saveAs(outfile, pdfOptions);
+    var saveFiles = true;
+    for(var j=0; j<allLayers.length; j++){
+        if(new RegExp("Discontinued","g").exec(allLayers[j].name) == "Discontinued"){
+            alert("File contains discontinued color or layer. Ending process.")
+            saveFiles = false;
         }
-        lastIndex--;
-        app.undo();
     }
+    
+    if(saveFiles){
+        for(var lr = allLayers.length-1; lr >= 0; lr--){
+            if(allLayers[lr].name == "Thru-cut" || allLayers[lr].name == "Extras" || allLayers[lr].name == "Layer 1" || allLayers[lr].name == "Undefined Color"){
+                lastIndex--;
+                continue;
+            }
+            for (var ii = allLayers.length-1; ii >= 0; ii-- ) {
+                if(ii!=lastIndex) {
+                    if(allLayers[ii].locked == true) allLayers[ii].locked = false;
+                    if(allLayers[ii].visible == false) allLayers[ii].visible = true;           
+                    try{allLayers[ii].remove();}catch(ex){}
+                }       
+            }
+            
+            if(app.documents.length > 0){
+                var pdfOptions = new PDFSaveOptions();
+                    pdfOptions.pDFPreset = "Signs - Cut Files";
 
-    $doc.close(SaveOptions.DONOTSAVECHANGES)
-    file.remove()
+                var outfolder = makeOrGetFolder(dir.complete + "/" + allLayers[0].name);
+                
+                var outfile = new File(outfolder + "/" + baseName + "_" + allLayers[0].name + ".pdf");
+                    $doc.saveAs(outfile, pdfOptions);
+            }
+            lastIndex--;
+            app.undo();
+        }
+
+        $doc.close(SaveOptions.DONOTSAVECHANGES)
+        file.remove()
+    }
 
 }catch(e){
     alert("Error!\n" + e);
