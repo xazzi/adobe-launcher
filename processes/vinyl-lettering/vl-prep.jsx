@@ -1,8 +1,6 @@
 try{
-
     var dir = {
-       xml: new Folder(platform.directory + "/Prepress/Support/itemData/")
-       //xml: new Folder("//amz-impsw-data/IMPSW_DATA/Support/itemData")
+       xml: new Folder(platform.directory + "/.itemData")
     }
 
     var doc = app.activeDocument;
@@ -18,7 +16,8 @@ try{
     var data = {
         secondSurface: dataFile.product.secondSurface.text() == 'true' ? true : false,
         frosted: dataFile.product.cvFrosted.text() == 'true' ? true : false,
-        cvColors: dataFile.product.cvColors.text()
+        cvColors: dataFile.product.cvColors.text(),
+        facility: dataFile.misc.facility.text()
     }
 
     var usedColors = [];
@@ -254,6 +253,13 @@ try{
             }
         }catch(e){}
     }
+
+    var settingsLayer = createLayer(vinylData.name, true);
+        allPaths[i].parent.move(cvLayer, ElementPlacement.PLACEATEND);
+
+    var settings = createLayer("Settings", false)
+    var facility = createLayer("facility:" + data.facility, false)
+        facility.move(settings, ElementPlacement.PLACEATEND);
 
         fitArtboardToArt();
 

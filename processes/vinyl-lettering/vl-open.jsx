@@ -1,5 +1,5 @@
 var dir = {
-    ready: new Folder(platform.directory + "/Prepress/External/Special Process/Cut Vinyl/Ready/")
+    ready: new Folder(platform.directory + "/Vinyl Lettering/Ready/")
 }
 
 var userFolders = getUserFolders(dir)
