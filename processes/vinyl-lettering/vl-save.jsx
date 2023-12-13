@@ -1,14 +1,14 @@
 try{
 
     var dir = {
-        ready: new Folder(platform.directory + "/Prepress/External/Special Process/Cut Vinyl/Ready/"),
-        complete: new Folder(platform.directory + "/Prepress/External/Special Process/Cut Vinyl/Complete/")
+        ready: new Folder(platform.directory + "/Vinyl Lettering/Ready/"),
+        complete: new Folder(platform.directory + "/Vinyl Lettering/Complete/")
     }
 
     var $doc = app.activeDocument
 
+    // Find the file for deletion later.
     var userFolders = getUserFolders(dir)
-
     for(var i in userFolders){
         var file = new File(dir.ready + "/" + userFolders[i] + "/" + $doc.name);
         if(file.exists){
@@ -28,10 +28,35 @@ try{
             saveFiles = false;
         }
     }
+
+    var facility = null
+
+    // Scan the settings layer.
+    for(var ii = 0; ii<allLayers.length; ii++){
+        if(allLayers[ii].name == "Settings"){
+            var subLayers = allLayers[ii].layers
+            for(var h = 0; h<subLayers.length; h++){
+                if(new RegExp("facility","g").exec(subLayers[h].name) == "facility"){
+                    if(new RegExp("Salt Lake City","g").exec(subLayers[h].name) == "Salt Lake City"){
+                        facility = "Salt Lake City"
+                    }
+                    if(new RegExp("Wixom","g").exec(subLayers[h].name) == "Wixom"){
+                        facility = "Wixom"
+                    }
+
+                }
+            }
+        }
+    }
+
+    if(facility == null){
+        saveFiles = false;
+        alert("No Facility Assigned!")
+    }
     
     if(saveFiles){
         for(var lr = allLayers.length-1; lr >= 0; lr--){
-            if(allLayers[lr].name == "Thru-cut" || allLayers[lr].name == "Extras" || allLayers[lr].name == "Layer 1" || allLayers[lr].name == "Undefined Color"){
+            if(allLayers[lr].name == "Thru-cut" || allLayers[lr].name == "Extras" || allLayers[lr].name == "Layer 1" || allLayers[lr].name == "Undefined Color" || allLayers[lr].name == "Settings"){
                 lastIndex--;
                 continue;
             }
@@ -45,9 +70,9 @@ try{
             
             if(app.documents.length > 0){
                 var pdfOptions = new PDFSaveOptions();
-                    pdfOptions.pDFPreset = "Signs - Cut Files";
+                    pdfOptions.pDFPreset = "[Illustrator Default]";
 
-                var outfolder = makeOrGetFolder(dir.complete + "/" + allLayers[0].name);
+                var outfolder = makeOrGetFolder(dir.complete + "/" + facility + "/" + allLayers[0].name);
                 
                 var outfile = new File(outfolder + "/" + baseName + "_" + allLayers[0].name + ".pdf");
                     $doc.saveAs(outfile, pdfOptions);

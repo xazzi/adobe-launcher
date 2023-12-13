@@ -61,7 +61,7 @@ function addSwatches(){
 }
 
 function addCutVinylSwatches(){
-    var csvFile = new File(platform.directory + "/Prepress/Private/Scripts/Resources/Data Files/database_cutVinyl-slc.csv");
+    var csvFile = new File(platform.local + "/library/color-database.csv");
     var folder
     
     if(csvFile.exists){
@@ -202,6 +202,7 @@ function makeCMYKColor(c,m,y,k){
 // User Data Functions -------------------
 function getUserFolders(dir){
     var userFolders = [];
+        userFolders.push("")
     var userDir = dir.ready.getFiles();
 
     for(var i=0; i<userDir.length; i++){
@@ -210,7 +211,7 @@ function getUserFolders(dir){
         }
     }
 
-   return userFolders;
+    return userFolders;
 }
 
 function makeOrGetFolder(path){
@@ -231,7 +232,7 @@ function readDatabase_cutVinyl(query){
         name: "Undefined Color"
     }
     
-    var csvFile = new File(platform.directory + "/Prepress/Private/Scripts/Resources/Data Files/database_cutVinyl-slc.csv");
+    var csvFile = new File(platform.local + "/library/color-database.csv");
         csvFile.open(File.ReadOnly);
 
     while(!csvFile.eof){

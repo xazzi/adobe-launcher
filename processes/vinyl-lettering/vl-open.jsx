@@ -1,15 +1,24 @@
 var dir = {
-    ready: new Folder(platform.directory + "/Prepress/External/Special Process/Cut Vinyl/Ready/")
+    ready: new Folder(platform.directory + "/Vinyl Lettering/Ready/")
 }
 
-var userFolders = getUserFolders(dir)
+var userFolders = getUserFolders(dir);
+var user = 0
+
+// Try to automatically determine the user.
+for(var i=0; i<userFolders.length; i++){
+    if(platform.username.split('.')[0].toLowerCase() == userFolders[i].split(' ')[0].toLowerCase()){
+        user = i
+        break
+    }
+}
 
 // Make the Window
 var w = new Window("dialog", "Vinyl Lettering");
     w.alignChildren = "top";
 
     w.dropdown = w.add ('dropdownlist', undefined, userFolders);
-    w.dropdown.selection = 1;
+    w.dropdown.selection = user;
     w.dropdown.onChange = function(){
         w.list.removeAll();
         getUserFiles(w);

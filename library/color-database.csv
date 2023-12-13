@@ -1,0 +1,114 @@
+name,hexID,dataID,rValue,gValue,bValue,cValue,mValue,yValue,kValue,width,swatch_name,enable,swatch_C,swatch_M,swatch_Y,swatch_K
+White,ffffff,10,255,255,255,0,0,0,0,48,White_cv,y,0,0,0,0
+Antique White,fffbef,90,255,251,239,0,1,7,0,48,Antique White_cv,y,0,1,6,0
+Apple Green,62a945,196,98,169,69,60,11,100,0,48,Apple Green_cv,y,67,11,100,0
+Apple Green,62a945,196,98,169,69,67,11,100,0,48,Apple Green_cv,y,67,11,100,0
+Apple Green,62a945,196,98,169,69,50,0,100,0,48,Apple Green_cv,y,67,11,100,0
+Apple Green,62a945,196,98,169,69,60,1,87,11,48,Apple Green_cv,y,67,11,100,0
+Apple Green,62a945,196,98,169,69,42,0,59,33,48,Apple Green_cv,y,67,11,100,0
+Bermuda Blue,6473,357,0,100,115,91,47,44,17,24,Bermuda Blue_cv,n,91,47,44,17
+Bermuda Blue,6473,357,0,100,115,76,39,0,34,24,Bermuda Blue_cv,n,91,47,44,17
+Bermuda Blue,6473,357,0,100,115,84,26,29,37,24,Bermuda Blue_cv,n,91,47,44,17
+Bermuda Blue,6473,357,0,100,115,100,13,0,54,24,Bermuda Blue_cv,n,91,47,44,17
+Black,0,12,0,0,0,0,0,0,100,48,Black_cv,y,0,0,0,100
+Black,0,12,0,0,0,82,73,60,99,48,Black_cv,y,0,0,0,100
+Black,0,12,0,0,0,74,67,66,89,48,Black_cv,y,0,0,0,100
+Black,0,12,0,0,0,73,66,65,83,48,Black_cv,y,0,0,0,100
+Bright Green,8656,186,0,134,86,87,23,83,8,24,Bright Green_cv,n,87,23,83,8
+Bright Orange,ff5000,14,255,80,0,0,78,100,0,24,Bright Orange_cv,y,0,78,100,0
+Bright Orange,ff5000,14,255,80,0,0,83,100,0,24,Bright Orange_cv,y,0,78,100,0
+Bright Orange,ff5000,14,255,80,0,0,68,100,0,24,Bright Orange_cv,y,0,78,100,0
+Bright Yellow,ffce00,15,255,206,0,0,17,99,0,24,Bright Yellow_cv,n,0,17,99,0
+Bright Yellow,ffce00,15,255,206,0,0,16,91,0,24,Bright Yellow_cv,n,0,17,99,0
+Burgundy,8c2232,58,140,34,50,5,94,54,46,24,Burgundy_cv,y,29,96,75,29
+Burgundy,8c2232,58,140,34,50,0,75,64,45,24,Burgundy_cv,y,29,96,75,29
+Burgundy,8c2232,58,140,34,50,29,96,75,28,24,Burgundy_cv,y,29,96,75,29
+Cardinal Red,c3002f,53,195,0,47,0,100,70,18,48,Cardinal Red_cv,y,16,100,87,6
+Cardinal Red,c3002f,53,195,0,47,0,100,75,23,48,Cardinal Red_cv,y,16,100,87,6
+Cardinal Red,c3002f,53,195,0,47,16,100,89,6,48,Cardinal Red_cv,y,16,100,87,6
+Cardinal Red,c3002f,53,195,0,47,0,94,93,1,48,Cardinal Red_cv,y,16,100,87,6
+Dark Aqua,5cc7b5,307,92,199,181,59,0,36,0,24,Dark Aqua_cv,y,60,0,37,0
+Dark Gray,55565a,41,85,86,90,65,57,51,28,48,Dark Gray_cv,y,65,57,52,29
+Dark Gray,55565a,41,85,86,90,5,4,0,64,48,Dark Gray_cv,y,65,57,52,29
+Dark Gray,55565a,41,85,86,90,62,52,46,35,48,Dark Gray_cv,y,65,57,52,29
+Dark Gray,55565a,41,85,86,90,0,0,0,80,48,Dark Gray_cv,y,65,57,52,29
+Dark Green,6241,56,0,98,65,100,0,33,61,48,Dark Green_cv,y,90,36,84,30
+Dark Green,6241,56,0,98,65,90,36,84,29,48,Dark Green_cv,y,90,36,84,30
+Dark Green,6241,56,0,98,65,81,12,73,49,48,Dark Green_cv,y,90,36,84,30
+Dark Green,6241,56,0,98,65,79,5,73,25,48,Dark Green_cv,y,90,36,84,30
+Dark Violet,74134F,98,116,19,79,29,100,4,46,24,Dark Violet_cv,y,48,100,40,28
+Dark Violet,74134F,98,116,19,79,48,100,40,27,24,Dark Violet_cv,y,48,100,40,28
+Dark Violet,74134F,98,116,19,79,0,83,31,54,24,Dark Violet_cv,y,48,100,40,28
+Deep Mahogany,512c1d,19,81,44,29,30,71,74,69,24,Deep Mahogany_cv,y,44,74,81,59
+Deep Mahogany,512c1d,19,81,44,29,0,45,64,68,24,Deep Mahogany_cv,y,44,74,81,59
+Deep Mahogany,512c1d,19,81,44,29,43,73,80,58,24,Deep Mahogany_cv,y,44,74,81,59
+Florescent Green,0,Florescent Green 406,0,225,0,69,0,100,0,24,Florescent Green_cv,y,69,0,100,0
+Florescent Green,0,Florescent Green 406,0,225,0,100,0,100,11,24,Florescent Green_cv,y,69,0,100,0
+Florescent Orange,ff5b00,Florescent Orange 404,255,91,0,,,,,24,Florescent Orange_cv,y,0,79,100,0
+Florescent Yellow,fff203,Florescent Yellow 405,255,242,3,3,0,93,0,24,Florescent Yellow_cv,y,3,0,93,0
+Frosted,d6d6d6,Arlon 314,214,214,214,17,12,12,0,48,Frosted_cv,y,15,12,12,0
+Frosted,d6d6d6,Arlon 314,214,214,214,0,0,0,16,48,Frosted_cv,y,15,12,12,0
+Gold,D4AF37,Gold 131,212,175,55,0,17,74,16,48,Gold_cv,y,19,29,95,0
+Gold,D4AF37,Gold 131,212,175,55,18,28,94,0,48,Gold_cv,y,19,29,95,0
+Gold,D4AF37,Gold 131,212,175,55,12,15,86,12,48,Gold_cv,y,19,29,95,0
+Gold,D4AF37,Gold 131,212,175,55,8,22,83,11,48,Gold_cv,y,19,29,95,0
+Gold,D4AF37,Gold 131,212,175,55,13,30,93,0,48,Gold_cv,y,19,29,95,0
+Ice Blue,46b6d1,951-056,67,182,209,66,4,12,1,24,Ice Blue_cv,y,66,7,14,0
+Ice Blue,46b6d1,951-056,67,182,209,53,0,9,22,24,Ice Blue_cv,y,66,7,14,0
+Ice Blue,46b6d1,951-056,67,182,209,67,12,0,18,24,Ice Blue_cv,y,66,7,14,0
+Ice Blue,46b6d1,951-056,67,182,209,93,31,0,5,24,Ice Blue_cv,y,66,7,14,0
+Intense Blue,00448d,47,0,68,141,100,74,0,11,48,Intense Blue_cv,y,100,83,15,2
+Intense Blue,00448d,47,0,68,141,100,87,0,0,48,Intense Blue_cv,y,100,83,15,2
+Intense Blue,00448d,47,0,68,141,100,100,0,0,48,Intense Blue_cv,y,100,83,15,2
+Intense Blue,00448d,47,0,68,141,95,57,4,38,48,Intense Blue_cv,y,100,83,15,2
+Intense Blue,00448d,47,0,68,141,100,51,0,44,48,Intense Blue_cv,y,100,83,15,2
+Intense Blue,00448d,47,0,68,141,100,83,15,2,48,Intense Blue_cv,y,100,83,15,2
+Intense Blue,00448d,47,0,68,141,93,82,0,0,48,Intense Blue_cv,y,100,83,15,2
+Intense Blue,00448d,47,0,68,141,97,90,0,35,48,Intense Blue_cv,y,100,83,15,2
+Intense Orange,ef4b24,134,239,75,36,3,62,100,0,24,Intense Orange_cv,n,3,62,100,0
+Intense Orange,ef4b24,134,239,75,36,0,68,85,6,24,Intense Orange_cv,n,3,62,100,0
+Intense Orange,ef4b24,134,239,75,36,0,86,98,0,24,Intense Orange_cv,n,3,62,100,0
+Intense Orange,ef4b24,134,239,75,36,0,82,91,0,24,Intense Orange_cv,n,3,62,100,0
+Light Orange,ee7c21,54,238,124,33,0,60,92,1,24,Light Orange_cv,y,3,62,100,0
+Light Orange,ee7c21,54,238,124,33,0,61,99,1,24,Light Orange_cv,y,3,62,100,0
+Light Orange,ee7c21,54,238,124,33,0,50,100,0,24,Light Orange_cv,y,3,62,100,0
+Light Orange,ee7c21,54,238,124,33,0,47,86,6,24,Light Orange_cv,y,3,62,100,0
+Magenta,e7417a,103,231,65,122,2,89,25,0,24,Magenta_cv,y,3,89,26,0
+Magenta,e7417a,103,231,65,122,0,71,47,9,24,Magenta_cv,y,3,89,26,0
+Medium Gray,b2b3b2,31,178,179,178,52,39,37,18,48,Medium Gray_cv,y,31,24,26,0
+Medium Gray,b2b3b2,31,178,179,178,0,0,0,29,48,Medium Gray_cv,y,31,24,26,0
+Medium Gray,b2b3b2,31,178,179,178,26,19,20,0,48,Medium Gray_cv,y,31,24,26,0
+Muave,cd7c91,193,205,124,145,,,,,,Muave_cv,n,0,10,0,0
+Pearl Gray,acaeae,11,172,174,174,34,25,25,3,24,Pearl Gray_cv,n,34,25,25,3
+Perfect Match Red,dd0031,263,221,0,49,7,100,86,1,48,Perfect Match Red_cv,y,6,100,87,0
+Perfect Match Red,dd0031,263,221,0,49,0,100,77,13,48,Perfect Match Red_cv,y,6,100,87,0
+Perfect Match Red,dd0031,263,221,0,49,0,100,75,4,48,Perfect Match Red_cv,y,6,100,87,0
+Perfect Match Red,dd0031,263,221,0,49,0,100,70,10,48,Perfect Match Red_cv,y,6,100,87,0
+Powder Blue,98d5e9,347,152,213,233,42,0,6,0,30,Powder Blue_cv,n,42,0,6,0
+Powder Blue,98d5e9,347,152,213,233,34,8,0,8,30,Powder Blue_cv,n,42,0,6,0
+Primrose Yellow,fddc03,135,253,220,3,2,9,100,0,24,Primrose Yellow_cv,y,2,9,100,0
+Primrose Yellow,fddc03,135,253,220,3,2,7,90,1,24,Primrose Yellow_cv,y,2,9,100,0
+Process Magenta,d51067,273,213,16,103,0,92,51,16,24,Process Magenta_cv,y,12,100,37,0
+Process Magenta,d51067,273,213,16,103,1,97,19,8,24,Process Magenta_cv,y,12,100,37,0
+Purple,4a284f,48,74,40,79,6,49,0,69,24,Purple_cv,n,6,49,0,69
+Purple,4a284f,48,74,40,79,72,90,39,35,24,Purple_cv,n,6,49,0,69
+Royal Blue,131f6b,87,19,31,107,82,71,0,58,48,Royal Blue_cv,y,100,97,26,19
+Royal Blue,131f6b,87,19,31,107,100,99,0,26,48,Royal Blue_cv,y,100,97,26,19
+Royal Blue,131f6b,87,19,31,107,87,77,10,49,48,Royal Blue_cv,y,100,97,26,19
+Royal Blue,131f6b,87,19,31,107,100,97,26,19,48,Royal Blue_cv,y,100,97,26,19
+Royal Purple,3b246e,38,59,36,110,93,100,24,13,24,Royal Purple_cv,y,93,100,24,12
+Royal Purple,3b246e,38,59,36,110,46,67,0,56,24,Royal Purple_cv,y,93,100,24,12
+Royal Purple,3b246e,38,59,36,110,89,100,0,23,24,Royal Purple_cv,y,93,100,24,12
+Russet Brown,6f3c2f,29,111,60,47,37,73,75,41,24,Russet Brown_cv,n,37,73,75,41
+Russet Brown,6f3c2f,29,111,60,47,23,69,67,52,24,Russet Brown_cv,n,37,73,75,41
+Silver,BCC6CC,Silver 120,188,198,204,28,16,14,0,48,Silver_cv,y,26,16,15,0
+Silver,BCC6CC,Silver 120,188,198,204,7,2,0,20,48,Silver_cv,y,26,16,15,0
+Sunflower,ffb700,25,255,183,0,0,30,100,0,24,Sunflower_cv,y,0,31,100,0
+Sunflower,ffb700,25,255,183,0,0,23,92,0,24,Sunflower_cv,y,0,31,100,0
+Tan,a78862,39,167,136,98,22,37,57,20,24,Tan_cv,y,33,43,67,7
+Tan,a78862,39,167,136,98,0,18,41,34,24,Tan_cv,y,33,43,67,7
+Tan,a78862,39,167,136,98,24,43,59,16,24,Tan_cv,y,33,43,67,7
+Teal,007b8a,96,0,123,138,87,36,39,7,24,Teal_cv,y,87,37,39,7
+Teal,007b8a,96,0,123,138,100,10,0,45,24,Teal_cv,y,87,37,39,7
+Teal,007b8a,96,0,123,138,81,20,28,23,24,Teal_cv,y,87,37,39,7
+Violet,bb96be,88,187,150,190,26,43,4,0,24,Violet_cv,n,26,43,4,0
