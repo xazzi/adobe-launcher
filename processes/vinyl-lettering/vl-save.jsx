@@ -7,8 +7,8 @@ try{
 
     var $doc = app.activeDocument
 
+    // Find the file for deletion later.
     var userFolders = getUserFolders(dir)
-
     for(var i in userFolders){
         var file = new File(dir.ready + "/" + userFolders[i] + "/" + $doc.name);
         if(file.exists){
