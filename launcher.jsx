@@ -14,7 +14,8 @@ if(new RegExp("Macintosh","g").exec($.os) == "Macintosh"){
     var platform = {
         name: "Windows",
         username: $.getenv('USERNAME'),
-        directory: "//amz-impsw-data/IMPSW_DATA/Support/",
+        directory: "//amz-impsw-data.us.digitalroominc.com/IMPSW_DATA/Support/",
+        //directory: "//amz-impsw-data/IMPSW_DATA/Support/",
         local: paths.join("\\")
     }
 }else{
