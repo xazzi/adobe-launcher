@@ -254,9 +254,6 @@ try{
         }catch(e){}
     }
 
-    var settingsLayer = createLayer(vinylData.name, true);
-        allPaths[i].parent.move(cvLayer, ElementPlacement.PLACEATEND);
-
     var settings = createLayer("Settings", false)
     var facility = createLayer("facility:" + data.facility, false)
         facility.move(settings, ElementPlacement.PLACEATEND);
