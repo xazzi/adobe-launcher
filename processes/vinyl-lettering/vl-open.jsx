@@ -1,5 +1,5 @@
 var dir = {
-    ready: new Folder(platform.directory + "/Vinyl Lettering/Ready/")
+    ready: new Folder(platform.support + "/Vinyl Lettering/")
 }
 
 var userFolders = getUserFolders(dir);

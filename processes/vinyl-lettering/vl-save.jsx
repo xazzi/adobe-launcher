@@ -1,8 +1,8 @@
 try{
 
     var dir = {
-        ready: new Folder(platform.directory + "/Vinyl Lettering/Ready/"),
-        complete: new Folder(platform.directory + "/Vinyl Lettering/Complete/")
+        ready: new Folder(platform.support + "/Vinyl Lettering/"),
+        complete: new Folder(platform.liveServices + "/Vinyl Lettering/")
     }
 
     var $doc = app.activeDocument
