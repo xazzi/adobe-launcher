@@ -1,6 +1,6 @@
 try{
     var dir = {
-       xml: new Folder(platform.directory + "/.itemData")
+       xml: new Folder(platform.liveServices + "/Item Data")
     }
 
     var doc = app.activeDocument;
