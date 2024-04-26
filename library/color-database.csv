@@ -1,6 +1,6 @@
 name,hexID,dataID,rValue,gValue,bValue,cValue,mValue,yValue,kValue,width,swatch_name,enable,swatch_C,swatch_M,swatch_Y,swatch_K
-White,ffffff,10,255,255,255,0,0,0,0,48,White_cv,y,0,0,0,0
-Antique White,fffbef,90,255,251,239,0,1,7,0,48,Antique White_cv,y,0,1,6,0
+White,ffffff,10,255,255,255,0,0,0,0,48,White_cv,y,72,0,12,0
+Antique White,fffbef,90,255,251,239,0,1,7,0,48,Antique White_cv,y,72,0,12,0
 Apple Green,62a945,196,98,169,69,60,11,100,0,48,Apple Green_cv,y,67,11,100,0
 Apple Green,62a945,196,98,169,69,67,11,100,0,48,Apple Green_cv,y,67,11,100,0
 Apple Green,62a945,196,98,169,69,50,0,100,0,48,Apple Green_cv,y,67,11,100,0
