@@ -17,7 +17,8 @@ try{
         secondSurface: dataFile.product.secondSurface.text() == 'true' ? true : false,
         frosted: dataFile.product.cvFrosted.text() == 'true' ? true : false,
         cvColors: dataFile.product.cvColors.text(),
-        facility: dataFile.misc.facility.text()
+        facility: dataFile.misc.facility.text(),
+        layout: null
     }
 
     var usedColors = [];
@@ -246,17 +247,17 @@ try{
         elements[m].stroked = true;
         elements[m].strokeWidth = 1;
         try{
-            if(elements[m].layer.name == "White" || elements[m].layer.name == "Antique White"){
-                elements[m].strokeColor = doc.swatches.getByName("Kiss-cut").color;
-            }else{
-                elements[m].strokeColor = doc.swatches.getByName(elements[m].layer.name.split(' (')[0] + "_cv").color;
-            }
+            elements[m].strokeColor = doc.swatches.getByName(elements[m].layer.name.split(' (')[0] + "_cv").color;
         }catch(e){}
     }
 
     var settings = createLayer("Settings", false)
+
     var facility = createLayer("facility:" + data.facility, false)
         facility.move(settings, ElementPlacement.PLACEATEND);
+
+    var layout = createLayer("layout:" + data.layout, false)
+        layout.move(settings, ElementPlacement.PLACEATEND);
 
         fitArtboardToArt();
 
