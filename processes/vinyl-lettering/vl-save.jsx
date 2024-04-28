@@ -4,7 +4,7 @@ try{
         xml: new Folder(platform.liveServices + "/Item Data"),
         ready: new Folder(platform.support + "/Vinyl Lettering/"),
         data: new Folder(platform.liveServices + "/Vinyl Lettering Data/"),
-        complete: new Folder(platform.liveServices + "/Vinyl Lettering Dev/")
+        complete: new Folder(platform.liveServices + "/Vinyl Lettering/")
     }
 
     var doc = app.activeDocument
