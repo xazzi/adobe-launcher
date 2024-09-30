@@ -15,7 +15,8 @@ try{
     var handoffData = {
         contentFile: dataFile.product.contentFile.text(),
         itemNumber: dataFile.product.itemNumber.text(),
-        gangNumber: dataFile.base.projectID.text(),
+        projectID: dataFile.base.projectID.text(),
+        gangNumber: dataFile.base.gangNumber.text(),
         sku: dataFile.base.sku.text()
     }
 
@@ -133,6 +134,7 @@ function writeXmlFile(dir, handoffData, settings){
         xmlFile.writeln("<data>")
 
         xmlFile.writeln("<sku>" + handoffData.sku + "</sku>")
+        xmlFile.writeln("<projectID>" + handoffData.projectID + "</projectID>")
         xmlFile.writeln("<gangNumber>" + handoffData.gangNumber + "</gangNumber>")
         xmlFile.writeln("<itemNumber>" + handoffData.itemNumber + "</itemNumber>")
 
